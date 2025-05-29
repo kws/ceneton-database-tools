@@ -1,0 +1,28 @@
+[project]
+name = "ceneton-indexer"
+version = "0.1.0"
+description = "Tools and scripts for searching and filtering the ceneton database"
+authors = [
+    {name = "Kaj Siebert",email = "kaj@k-si.com"}
+]
+license = {text = "MIT"}
+readme = "README.md"
+requires-python = ">=3.10"
+dependencies = [
+    "lxml (>=5.4.0,<6.0.0)",
+    "click (>=8.1.8,<9.0.0)",
+    "tqdm (>=4.67.1,<5.0.0)",
+    "sqlalchemy (>=2.0.40,<3.0.0)",
+    "pyyaml (>=6.0.2,<7.0.0)",
+    "requests (>=2.32.3,<3.0.0)"
+]
+
+
+[build-system]
+requires = ["poetry-core>=2.0.0,<3.0.0"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.poetry.group.dev.dependencies]
+ipykernel = "^6.29.5"
+pandas = "^2.2.3"
+

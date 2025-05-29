@@ -1,0 +1,127 @@
+﻿original_name,clean_name,section,english_name,description
+Aantal bedr.,aantal_bedr_,structure,act_count,
+Aantal pers.,aantal_pers_,structure,character_count,
+Aantal tekstpagina's,aantal_tekstpagina_s,structure,page_count,
+Aantal verzen,aantal_verzen,content,verse_count,
+Adressaat opdracht,adressaat_opdracht,content,dedication_addressee,The person or entity to whom the play or printed work is formally dedicated.
+Adressant opdracht,adressant_opdracht,content,dedication_author,The person (typically the author or printer) who writes or signs the dedication.
+Arnhem,arnhem,holdings,arnhem,
+Arpots,arpots,holdings,arpots,
+ArtesisAntwerpen,artesisantwerpen,holdings,artesisantwerpen,
+Auteur bijwerk,auteur_bijwerk,notes,additional_author,
+Auteur o.g.v.,auteur_o_g_v_,metadata,author_inferred_from,The location where the author's name or mark is found
+Auteur volgens titel,auteur_volgens_titel,metadata,author_on_titlepage,
+Auteur,auteur,metadata,author,Main author of the play
+Auteursbibliografie,auteursbibliografie,metadata,author_bibliography,
+AuteurVA,auteurva,metadata,author_normalized,Normalized or standard form of the author's name
+BL,bl,holdings,bl,
+BNF Yth.,bnf_yth_,holdings,bnf_yth_,
+BNF,bnf,holdings,bnf,
+Bron intrige,bron_intrige,content,bron_intrige,
+BSB,bsb,holdings,bsb,
+BTH,bth,holdings,bth,
+CenetonExport,cenetonexport,digital,ceneton_export_flag,Flag marking this play for Ceneton export
+CenetonNummer,cenetonnummer,identifiers,ceneton_id,
+Code,code,holdings,code,
+Codejaar,codejaar,metadata,year_code,Derived or alternate code for the publication year
+Collatie,collatie,publication,collation,Collation or description of the book‚Äôs page structure
+Commentaar,commentaar,notes,comments,
+DigitaleBron,digitalebron,digital,digital_source,
+DIV,div,holdings,div,
+Druk,druk,publication,edition,Edition or print run number
+DrukkerAN,drukkeran,publication,printer_lastname,Printer's last name
+DrukkerVA,drukkerva,publication,printer_normalized,Normalized form of the printer's name
+DrukkerVN,drukkervn,publication,printer_firstname,Printer's first name
+Enschedé,enschedé,holdings,ensched√©,
+ExportIllustraties,exportillustraties,digital,exportillustraties,
+Facsimile,facsimile,digital,facsimile,
+GADordrecht,gadordrecht,holdings,gadordrecht,
+GBR,gbr,holdings,gbr,
+Gebr. exemplaar,gebr_exemplaar,holdings,used_copy,
+Genre,genre,metadata,genre,"Genre of the play (e.g., tragedy, comedy)"
+Gesp. plaats,gesp_plaats,notes,setting_place,
+Gesp. tijd,gesp_tijd,content,setting_time,
+HABW,habw,holdings,habw,
+HandNummer,handnummer,notes,handwritten_number,Manuscript or handwritten identifier
+http,http,digital,text_link,
+Hummelen,hummelen,holdings,hummelen,
+Illustraties,illustraties,illustrations,summary,
+IllustratiesAfmetingen,illustratiesafmetingen,illustrations,dimensions,
+IllustratiesDatering,illustratiesdatering,illustrations,dating,
+IllustratiesExtra,illustratiesextra,illustrations,extra,
+IllustratiesKunstenaar,illustratieskunstenaar,illustrations,artists,
+IllustratiesLiteratuur,illustratiesliteratuur,illustrations,literature,
+IllustratiesOnderwerp,illustratiesonderwerp,illustrations,subject,
+IllustratiesOpmerkingen,illustratiesopmerkingen,illustrations,notes,
+IllustratiesStaat,illustratiesstaat,illustrations,condition,
+IllustratiesTechniek,illustratiestechniek,illustrations,technique,
+IllustratiesTekst,illustratiestekst,illustrations,captions,
+Incipit,incipit,content,incipit,
+Internet,internet,digital,internet,
+InternetIncipits,internetincipits,digital,internetincipits,
+Jaar,jaar,metadata,year,Year the play was published
+Jaarnr,jaarnr,publication,year_numeric,"Numeric value for the year, used internally"
+Jaartal o.g.v.,jaartal_o_g_v_,metadata,year_inferred,
+Jaren auteur,jaren_auteur,metadata,author_life_dates,
+Jaren oorspr. auteur,jaren_oorspr_auteur,metadata,original_author_life_dates,
+Katernopbouw,katernopbouw,publication,quire_structure,
+KBB,kbb,holdings,kbb,
+KBH,kbh,holdings,kbh,
+KBK,kbk,holdings,kbk,
+KNAW,knaw,holdings,knaw,
+Korte titel,korte_titel,metadata,title_short,Short title or abbreviation of the play's name
+Kortrijk,kortrijk,holdings,kortrijk,
+Latere ed.,latere_ed_,publication,later_edition,
+Lettertype,lettertype,publication,font_type,
+Meermanno,meermanno,holdings,meermanno,
+Meeus,meeus,holdings,meeus,
+MNL,mnl,holdings,mnl,
+Nazoeken,nazoeken,notes,further_research,
+Nummer C,nummer_c,identifiers,catalog_number_c,Sub-number C for cataloging or indexing
+Nummer D,nummer_d,identifiers,catalog_number_d,Sub-number D for cataloging or indexing
+Nummer E,nummer_e,identifiers,catalog_number_e,Sub-number E for cataloging or indexing
+Nummer G,nummer_g,identifiers,catalog_number_g,Sub-number G for cataloging or indexing
+Nummer H,nummer_h,identifiers,catalog_number_h,Sub-number H for cataloging or indexing
+Nummer,nummer,identifiers,catalog_number,Unique identifier in the Ceneton database. See also Nummering
+Nummering,nummering,identifiers,numbering_notes,The number-only part of the Ceneton ID - see Nummer
+Onderscheidend kenmerk,onderscheidend_kenmerk,structure,distinctive_feature,
+Oorspr. auteur AN,oorspr_auteur_an,metadata,original_author_lastname,The last name of the author of the original language text
+Oorspr. auteur VA,oorspr_auteur_va,metadata,original_author_normalized,
+Oorspr. auteur VN,oorspr_auteur_vn,metadata,original_author_firstname,The first name of the author of the original language text
+Oorspr. taal,oorspr_taal,metadata,original_language,Original language in which the play was written
+Overkoepelende titel,overkoepelende_titel,content,series_title,
+PBZ,pbz,holdings,pbz,
+PD,pd,holdings,pd,
+Personages,personages,content,characters,
+Plaats van uitgave,plaats_van_uitgave,publication,publication_place,City or location where the play was published
+Positie B2,positie_b2,structure,positie_b2,
+SBAntwerpen,sbantwerpen,holdings,SBAntwerpen,
+SBH,sbh,holdings,SBH,
+Smeyers,smeyers,notes,smeyers,
+SPB,spb,holdings,SPB,
+Te Winkel,te_winkel,holdings,te_winkel,
+TIN,tin,identifiers,tin,
+TINvanLier,tinvanlier,identifiers,tinvanlier,
+Titel,titel,metadata,title,Full title of the play
+Titelpagina,titelpagina,content,titlepage_text,
+Totale auteur,totale_auteur,metadata,author_full,"Full author string, including initials or extra info"
+Tresoar,tresoar,holdings,tresoar,
+UBA,uba,holdings,uba,
+UBenSBMaastricht,ubensbmaastricht,holdings,ubensbmaastricht,
+UBGent,ubgent,holdings,ubgent,
+UBGr,ubgr,holdings,ubgr,
+UBL,ubl,holdings,ubl,
+UBLeuven,ubleuven,holdings,ubleuven,
+UBN,ubn,holdings,ubn,
+UBU,ubu,holdings,ubu,
+UBVU,ubvu,holdings,ubvu,
+Uitgeb. tijd,uitgeb_tijd,content,expanded_time,
+VA Ceneton,va_ceneton,identifiers,ceneton_code,
+VA STCN,va_stcn,identifiers,stcn_code,
+Van Aken,van_aken,identifiers,van_aken,
+Vignet,vignet,illustrations,vignette,
+Vijftiende bibliotheek,vijftiende_bibliotheek,holdings,vijftiende_bibliotheek,
+Vingerafdruk Commentaar,vingerafdruk_commentaar,publication,fingerprint_notes,
+Vingerafdruk,vingerafdruk,identifiers,fingerprint,
+Worp,worp,holdings,worp,
+Wroclaw,wroclaw,holdings,wroclaw,

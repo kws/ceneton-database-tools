@@ -1,9 +1,11 @@
 import bz2
 import csv
+import hashlib
 import json
 import sys
 from contextlib import contextmanager
-from io import TextIOWrapper
+from io import BytesIO, TextIOWrapper
+from pathlib import Path
 from typing import Generator
 
 import click
@@ -20,19 +22,24 @@ def cli():
 
 @contextmanager
 def _open_xml_stream(file_path: str) -> Generator[TextIOWrapper, None, None]:
-    if file_path.endswith(".bz2"):
+    file_path = Path(file_path)
+    if file_path.is_dir():
+        files = sorted(file_path.glob("*.bz2"))
+        file_path = files[-1]
+
+    if file_path.suffix == ".bz2":
         with bz2.open(file_path, "rb") as f:
-            yield f
+            yield file_path, f
     else:
         with open(file_path, "rb") as f:
-            yield f
+            yield file_path, f
 
 
 @cli.command
 @click.argument("file_path", type=click.Path(exists=True))
 def dump_headers(file_path: str):
     """Dump the headers of the FMP XML file."""
-    with _open_xml_stream(file_path) as source:
+    with _open_xml_stream(file_path) as (file_path, source):
         stream = read_fmp_xml(source)
         schema: FMPSchema | None = None
         for record in stream:
@@ -51,7 +58,7 @@ def dump_headers(file_path: str):
 def print_stream(file_path: str):
     """Print the stream of records from the FMP XML file."""
 
-    with _open_xml_stream(file_path) as source:
+    with _open_xml_stream(file_path) as (file_path, source):
         stream = read_fmp_xml(source)
         stream = tqdm(stream)
         for record in stream:
@@ -65,7 +72,7 @@ def print_stream(file_path: str):
 @click.argument("file_path", type=click.Path(exists=True))
 def to_json(file_path: str):
     """Convert the FMP XML file to JSONL (JSON Lines) format."""
-    with _open_xml_stream(file_path) as source:
+    with _open_xml_stream(file_path) as (file_path, source):
         stream = read_fmp_xml(source)
         stream = tqdm(stream)
         for record in stream:
@@ -102,7 +109,19 @@ def _read_mapping(mapping_column: str | None) -> dict[str, str] | None:
 @click.argument("file_path", type=click.Path(exists=True))
 @click.argument("db_url", type=str)
 @click.option("--mapping-column", type=str, help="Column name to use for mapping")
-def create_db(file_path: str, db_url: str, mapping_column: str):
+@click.option("--table-name", type=str, help="Name of the table to create")
+@click.option(
+    "--db-metadata",
+    multiple=True,
+    help="Metadata to store as key=value pairs (can be repeated)",
+)
+def create_db(
+    file_path: str,
+    db_url: str,
+    mapping_column: str,
+    table_name: str,
+    db_metadata: tuple[str],
+):
     """Create a database from FMP XML file.
 
     Args:
@@ -114,14 +133,33 @@ def create_db(file_path: str, db_url: str, mapping_column: str):
     """
     mapping = _read_mapping(mapping_column)
 
-    with _open_xml_stream(file_path) as source:
-        stream = read_fmp_xml(source)
+    # Parse metadata key=value pairs
+    metadata_dict = {}
+    for item in db_metadata:
+        if "=" not in item:
+            raise click.BadParameter(
+                f"Metadata must be in key=value format, got: {item}"
+            )
+        key, value = item.split("=", 1)
+        metadata_dict[key.strip()] = value.strip()
+
+    with _open_xml_stream(file_path) as (file_path, source):
+        content = source.read()
+        content_sha = hashlib.sha256(content).hexdigest()
+        metadata_dict["source_url"] = file_path.absolute().resolve().as_posix()
+        metadata_dict["source_sha256"] = content_sha
+
+        stream = read_fmp_xml(BytesIO(content))
         database_schema = next(stream)
         if not isinstance(database_schema, FMPSchema):
             raise ValueError("First element is not a FMPSchema")
 
         engine, metadata, core_table = create_database_and_schema(
-            db_url, database_schema, mapping=mapping
+            db_url,
+            database_schema,
+            mapping=mapping,
+            table_name=table_name,
+            db_metadata=metadata_dict,
         )
         stream = tqdm(stream, total=database_schema.record_count)
 

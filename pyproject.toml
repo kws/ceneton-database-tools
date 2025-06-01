@@ -1,28 +1,40 @@
-[project]
-name = "ceneton-indexer"
+[tool.poetry]
+name = "ceneton-database-utils"
 version = "0.1.0"
 description = "Tools and scripts for searching and filtering the ceneton database"
-authors = [
-    {name = "Kaj Siebert",email = "kaj@k-si.com"}
-]
-license = {text = "MIT"}
+authors = ["Kaj Siebert <kaj@k-si.com>"]
+license = "MIT"
 readme = "README.md"
-requires-python = ">=3.10"
-dependencies = [
-    "lxml (>=5.4.0,<6.0.0)",
-    "click (>=8.1.8,<9.0.0)",
-    "tqdm (>=4.67.1,<5.0.0)",
-    "sqlalchemy (>=2.0.40,<3.0.0)",
-    "pyyaml (>=6.0.2,<7.0.0)",
-    "requests (>=2.32.3,<3.0.0)"
-]
+packages = [{include = "ceneton_database_utils", from = "src"}]
 
+[tool.poetry.dependencies]
+python = "^3.11"
+click = "^8.2.1"
+tqdm = "^4.67.1"
+sqlalchemy = "^2.0.41"
+lxml = "^5.4.0"
+
+[tool.poetry.group.dev.dependencies]
+ruff = "^0.11.12"
+pre-commit = "^4.2.0"
+
+[tool.poetry.scripts]
+ct-db = "ceneton_database_utils.__main__:cli"
+
+[tool.ruff]
+line-length = 88
+target-version = "py311"
+fix = true
+
+[tool.ruff.lint]
+select = ["E", "F", "I"]  # E: pycodestyle, F: pyflakes, I: isort
+
+[tool.ruff.format]
+docstring-code-format = true
 
 [build-system]
 requires = ["poetry-core>=2.0.0,<3.0.0"]
 build-backend = "poetry.core.masonry.api"
 
-[tool.poetry.group.dev.dependencies]
-ipykernel = "^6.29.5"
-pandas = "^2.2.3"
+
 
